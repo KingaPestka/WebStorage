@@ -10,6 +10,8 @@ var context = canvas.getContext("2d");
         
  function onPageLoad(){
      var href = window.location.href;
+     
+ 
 
  }           
 
@@ -91,7 +93,10 @@ function update() {
                 console.log("Right");
             }
             
+    
             
+    localStorage.setItem('x', gameobjects[0].x);    
+    localStorage.setItem('y', gameobjects[0].y);
             
 
         
@@ -103,6 +108,10 @@ var x = 0,
 
 
 function draw() {
+    var x = localStorage.getItem('x');
+var y = localStorage.getItem('y');
+console.log(x + "-"+ y );
+   
     
     for (i = 0; i < gameobjects.length; i++) {
         if (gameobjects[i].health > 0) {
@@ -115,7 +124,6 @@ function draw() {
     }
     context.drawImage(npcimage,gameobjects[1].x,gameobjects[1].y);
 
-   
     
     animate();
 }
@@ -210,5 +218,11 @@ var options = [{
   {
     "text": "Crossbow",
     "value": "Pistol crossbow"
-  }
+  },
+
+
+   
+
+
 ];
+
